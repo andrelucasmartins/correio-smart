@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
-import signIn from "@/firebase/auth/sign-in";
+import signUp from "@/firebase/auth/sign-up";
 
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ export default function SignUpForm() {
   const router = useRouter();
   const handleForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { result, error } = await signIn(email, password);
+    const { result, error } = await signUp(email, password);
     if (error) {
       toast({
         variant: "destructive",
