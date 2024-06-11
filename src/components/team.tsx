@@ -7,7 +7,7 @@ const people = [
   {
     name: "Caio",
     role: "Co-Founder / CEO",
-    imageUrl: "https://github.com/lesliealexander.png?raw=true",
+    imageUrl: "https://github.com/dcaiopontes.png?raw=true",
   },
   {
     name: "David",

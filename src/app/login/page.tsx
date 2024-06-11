@@ -12,6 +12,7 @@ import { FormEvent, useEffect, useState } from "react";
 import signIn from "@/firebase/auth/sign-in";
 import { FirebaseError } from "firebase/app";
 import { onAuthStateChanged, User } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc";
 import { auth } from "../../firebase/firebaseConfig";
 
 
@@ -63,9 +64,9 @@ export default function LoginPage() {
     <div className="w-full lg:grid lg:grid-cols-2 h-lvh">
       <div className="flex items-center justify-center py-12">
         {
-          <div className="mx-auto grid w-[350px] gap-6">
+          <div className="mx-auto grid w-[360px] gap-6">
             <div className="grid gap-2 text-center">
-              <h1 className="text-3xl font-bold">Login</h1>
+              <h1 className="text-3xl font-bold text-indigo-600">Sign In</h1>
               <p className="text-balance text-muted-foreground">
                 Enter your email below to login to your account
               </p>
@@ -100,17 +101,20 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <Button type="submit" className="w-full">
-                Login
+              <Button
+                type="submit"
+                className="w-full bg-indigo-600 hover:bg-indigo-500"
+              >
+                Enter
               </Button>
               {/* <form> */}
 
               <Button
                 variant="outline"
-                className="w-full"
+                className="w-full flex items-center gap-2 "
                 onClick={() => signInWithGoogle()}
               >
-                Login with Google
+                <FcGoogle className="size-5" /> Login with Google
               </Button>
               {/* </form> */}
             </form>
@@ -126,14 +130,12 @@ export default function LoginPage() {
       <div className="hidden bg-muted lg:block content-center bg-[url('/bg-login.jpg')] bg-no-repeat bg-cover bg-right">
         <Image
           src="/logo.avif"
-          alt="Logo Correio Smart"
+          alt="Logo Post Art"
           width="200"
           height="200"
           className="object-cover dark:brightness-[0.2] dark:grayscale mx-auto mix-blend-multiply flex self-center content-center"
         />
-        <h1 className="mx-auto font-bold text-2xl text-center">
-          Correio Smart
-        </h1>
+        <h1 className="mx-auto font-bold text-2xl text-center">Post Alert</h1>
       </div>
     </div>
   );
