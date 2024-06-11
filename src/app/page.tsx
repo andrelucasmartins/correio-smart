@@ -1,7 +1,5 @@
-import { LetterIcon } from "@/components/letter-icon";
-import { Button } from "@/components/ui/button";
-import Image from 'next/image';
-import Link from "next/link";
+import Hero from "@/components/hero";
+import Team from "@/components/team";
 
 interface addDataToFirestoreProps {
   name: string
@@ -24,8 +22,10 @@ export default async function Home() {
   //   }
   // }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between sm:-py-24 px-4">
-      <div className="flex flex-col justify-center items-center max-w-5xl mx-auto relative">
+    <main className="flex flex-col items-center justify-between">
+      <Hero />
+      <Team />
+      {/* <div className="flex flex-col justify-center items-center max-w-5xl mx-auto relative">
         <div className="sm:grid flex flex-col-reverse sm:grid-cols-2 justify-center items-center py-4">
           <LetterIcon className="w-full h-96" />
           <div className="space-y-4">
@@ -47,10 +47,7 @@ export default async function Home() {
             </p>
           </div>
         </div>
-        <Button asChild size={"lg"}>
-          <Link href="/login">Entrar</Link>
-        </Button>
-      </div>
+      </div> */}
     </main>
   );
 }

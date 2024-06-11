@@ -67,7 +67,7 @@ import Link from 'next/link';
 
 import { signOut } from "@/firebase/auth";
 import { User } from "firebase/auth";
-import { ref } from "firebase/database";
+import { get, ref } from "firebase/database";
 import { useRouter } from "next/navigation";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { auth, database } from '../../firebase/firebaseConfig';
@@ -96,8 +96,27 @@ export default function Dashboard() {
 
   const lettersRef = ref(database, 'sensor');
 
+  async function getData() {
+    try {
+      const snapshot = await get(lettersRef);
+
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        return snapshot.val();
+      } else {
+        console.log("No data available");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const result = getData()
+
+  console.log( result);
+
   // try {
-  //    const snapshot = await get(lettersRef);
+  //    const snapshot = get(lettersRef);
 
   //    if (snapshot.exists()) {
   //      console.log(snapshot.val());
@@ -378,7 +397,7 @@ export default function Dashboard() {
               <TabsContent value="all">
                 <Card x-chunk="dashboard-06-chunk-0">
                   <CardHeader>
-                    <CardTitle>Products</CardTitle>
+                    <CardTitle>Letters</CardTitle>
                     <CardDescription>
                       Manage your products and view their sales performance.
                     </CardDescription>
